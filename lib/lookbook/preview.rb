@@ -116,7 +116,7 @@ module Lookbook
 
         sorted_previews = previews.compact.sort_by { |preview| [preview.position, preview.label] }
         @previews = PreviewCollection.new(sorted_previews)
-        mark_as_cached
+        mark_as_cached if Lookbook.config.listen == true
         @previews
       end
 
